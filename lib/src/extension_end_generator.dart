@@ -7,7 +7,6 @@ class ExtensionEndGenerator extends GeneratorForAnnotation<Extension> {
   @override
   String generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) {
-    print("ExtensionEndGenerator");
     return '}';
   }
 }

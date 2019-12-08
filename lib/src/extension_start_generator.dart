@@ -8,8 +8,6 @@ class ExtensionStartGenerator extends GeneratorForAnnotation<Extension> {
   String generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) {
     ClassElement clazz = element;
-    print("ExtensionStartGenerator");
-
     return 'mixin _\$${clazz.name} {';
   }
 }
