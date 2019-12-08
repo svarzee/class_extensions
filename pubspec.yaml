@@ -1,0 +1,16 @@
+name: class_extensions
+version: 0.0.0
+author: svarzee <svarzee@gmail.com>
+homepage: https://github.com/svarzee/class_extensions
+description: >-
+  Provides the basis for generating class extensions with minimal boilerplate.
+environment:
+  sdk: '>=2.3.0 <3.0.0'
+
+dependencies:
+  analyzer: ^0.37.1
+  build: ^0.12.6
+  source_gen: ^0.9.0
+
+dev_dependencies:
+  build_runner: ^1.0.0
