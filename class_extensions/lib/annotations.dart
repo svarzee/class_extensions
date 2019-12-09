@@ -1,3 +1,0 @@
-class Extension {
-  const Extension();
-}
