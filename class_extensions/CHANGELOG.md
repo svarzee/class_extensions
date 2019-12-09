@@ -1,3 +1,6 @@
+## 0.3.0
+* Upgrade dependencies
+
 ## 0.2.0
 * Extract annotations to separate package
 
