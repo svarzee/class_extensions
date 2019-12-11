@@ -1,3 +1,6 @@
+## 0.3.1
+* Add example
+
 ## 0.3.0
 * Upgrade dependencies
 
