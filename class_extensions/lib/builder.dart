@@ -1,13 +1,8 @@
 import 'package:build/build.dart';
-import 'package:source_gen/source_gen.dart';
+import 'package:class_extensions/src/class_extension_generator.dart';
+import 'package:class_extensions/src/class_extensions_builder.dart';
 
-import 'src/extension_end_generator.dart';
-import 'src/extension_start_generator.dart';
+final List<ClassExtensionGenerator> classExtensionGenerators = [];
 
-Builder extensionStartBuilder(BuilderOptions options) =>
-    SharedPartBuilder([ExtensionStartGenerator()], '0_extension_start',
-        formatOutput: (code) => code);
-
-Builder extensionEndBuilder(BuilderOptions options) =>
-    SharedPartBuilder([ExtensionEndGenerator()], '9_extension_end',
-        formatOutput: (code) => code);
+Builder classExtensionsBuilder(BuilderOptions options) =>
+    ClassExtensionsBuilder(classExtensionGenerators, 'class_extensions');
