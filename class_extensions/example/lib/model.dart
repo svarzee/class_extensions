@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:class_extensions_annotations/annotations.dart';
 import 'package:meta/meta.dart';
 
@@ -12,4 +10,13 @@ class SomeValueClass with _$SomeValueClass {
   final int intVal;
 
   SomeValueClass(this.strVal, this.intVal);
+}
+
+@Extension()
+@immutable
+class OtherValueClass with _$OtherValueClass {
+  final String strVal;
+  final int intVal;
+
+  OtherValueClass(this.strVal, this.intVal);
 }
