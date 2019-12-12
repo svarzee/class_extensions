@@ -11,3 +11,4 @@ builders:
     import: "package:class_extensions/builder.dart"
     builder_factories: ["extensionStartDummyBuilder", "extensionEndDummyBuilder"]
     build_extensions: {".dart": []}
+    auto_apply: dependents
