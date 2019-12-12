@@ -1,3 +1,6 @@
+## 0.6.0
+* Implement generator ordering
+
 ## 0.5.0
 * Export api
 

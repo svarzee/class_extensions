@@ -8,19 +8,31 @@ import 'package:class_extensions/src/extension_start_generator.dart';
 export 'src/class_extension_generator.dart';
 export 'src/class_extensions_builder.dart';
 
-final List<ClassExtensionGenerator> classExtensionGenerators = [];
+final List<OrderedGenerator> _orderedGenerators = [];
+
+class OrderedGenerator {
+  int order;
+  ClassExtensionGenerator classExtensionGenerator;
+
+  OrderedGenerator(this.order, this.classExtensionGenerator);
+}
 
 DummyBuilder registerClassExtensionGenerator(
-    ClassExtensionGenerator generator) {
-  classExtensionGenerators.add(generator);
+    int order, ClassExtensionGenerator generator) {
+  _orderedGenerators.add(OrderedGenerator(order, generator));
+  _orderedGenerators.sort((left, right) => left.order.compareTo(order));
   return DummyBuilder();
 }
 
-Builder classExtensionsBuilder(BuilderOptions options) =>
-    ClassExtensionsBuilder(classExtensionGenerators, 'class_extensions');
+Builder classExtensionsBuilder(
+        BuilderOptions options) =>
+    ClassExtensionsBuilder(
+        _orderedGenerators
+            .map((generator) => generator.classExtensionGenerator),
+        'class_extensions');
 
 Builder extensionEndDummyBuilder(BuilderOptions options) =>
-    registerClassExtensionGenerator(ExtensionEndGenerator());
+    registerClassExtensionGenerator(0, ExtensionEndGenerator());
 
 Builder extensionStartDummyBuilder(BuilderOptions options) =>
-    registerClassExtensionGenerator(ExtensionStartGenerator());
+    registerClassExtensionGenerator(100, ExtensionStartGenerator());
