@@ -1,6 +1,6 @@
 builders:
   class_extensions:
-    import: "package:class_extensions/builder.dart"
+    import: "package:class_extensions/class_extensions.dart"
     builder_factories: ["classExtensionsBuilder"]
     build_extensions: {".dart": ["class_extensions.g.part"]}
     applies_builders: ["source_gen|combining_builder"]
@@ -8,7 +8,7 @@ builders:
     build_to: cache
 
   dummy_extension_generators:
-    import: "package:class_extensions/builder.dart"
+    import: "package:class_extensions/class_extensions.dart"
     builder_factories: ["extensionStartDummyBuilder", "extensionEndDummyBuilder"]
     build_extensions: {".dart": []}
     auto_apply: dependents

@@ -1,3 +1,6 @@
+## 0.5.0
+* Export api
+
 ## 0.4.0
 * Redesign how extensions are generated
 * Fix generation for multiple classes in one file
