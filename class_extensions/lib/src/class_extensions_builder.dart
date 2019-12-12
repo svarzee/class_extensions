@@ -3,12 +3,13 @@ import 'dart:async';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:build/build.dart';
 import 'package:class_extensions/src/class_extension_generator.dart';
+import 'package:class_extensions/src/ordered_generator.dart';
 import 'package:dart_style/dart_style.dart';
 import 'package:pedantic/pedantic.dart';
 import 'package:source_gen/source_gen.dart';
 
 class ClassExtensionsBuilder extends Builder {
-  final List<ClassExtensionGenerator> _generators;
+  final List<OrderedGenerator> _generators;
   final String Function(String) _formatOutput;
   final String _generatedExtension;
   @override
@@ -75,6 +76,7 @@ class ClassExtensionsBuilder extends Builder {
   Map<_AnnotatedElement, List<ClassExtensionGenerator>> _createBuildGraph(
       LibraryReader libraryReader) {
     return _generators
+        .map((generator) => generator.classExtensionGenerator)
         .expand((generator) => libraryReader
             .annotatedWith(generator.typeChecker)
             .map((annotatedElement) =>
