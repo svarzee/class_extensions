@@ -1,3 +1,7 @@
+## 0.4.0
+* Redesign how extensions are generated
+* Fix generation for multiple classes in one file
+
 ## 0.3.1
 * Add example
 
