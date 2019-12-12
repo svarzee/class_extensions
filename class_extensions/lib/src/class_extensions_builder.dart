@@ -25,7 +25,7 @@ class ClassExtensionsBuilder extends Builder {
     if (partId == null) {
       throw ArgumentError.notNull('partId');
     }
-    if (!RegExp(r'^[A-Za-z_\d-]+\$').hasMatch(partId)) {
+    if (!RegExp(r'^[A-Za-z_\d-]+$').hasMatch(partId)) {
       throw ArgumentError.value(
           partId,
           'partId',
