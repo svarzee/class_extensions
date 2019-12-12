@@ -72,20 +72,42 @@ class ClassExtensionsBuilder extends Builder {
     unawaited(buildStep.writeAsString(outputId, formattedOutput));
   }
 
-  Map<AnnotatedElement, List<ClassExtensionGenerator>> _createBuildGraph(
+  Map<_AnnotatedElement, List<ClassExtensionGenerator>> _createBuildGraph(
       LibraryReader libraryReader) {
     return _generators
         .expand((generator) => libraryReader
             .annotatedWith(generator.typeChecker)
-            .map((annotatedElement) => MapEntry(annotatedElement, generator)))
+            .map((annotatedElement) =>
+                MapEntry(_AnnotatedElement(annotatedElement), generator)))
         .fold(
-            Map<AnnotatedElement, List<ClassExtensionGenerator>>(),
-            (Map<AnnotatedElement, List<ClassExtensionGenerator>> previousValue,
-                    MapEntry<AnnotatedElement, ClassExtensionGenerator>
+            Map<_AnnotatedElement, List<ClassExtensionGenerator>>(),
+            (Map<_AnnotatedElement, List<ClassExtensionGenerator>>
+                        previousValue,
+                    MapEntry<_AnnotatedElement, ClassExtensionGenerator>
                         element) =>
                 previousValue
                   ..update(element.key,
                       (generators) => generators..add(element.value),
                       ifAbsent: () => [element.value]));
   }
+}
+
+class _AnnotatedElement {
+  final ConstantReader annotation;
+  final Element element;
+
+  _AnnotatedElement(AnnotatedElement annotatedElement)
+      : annotation = annotatedElement.annotation,
+        element = annotatedElement.element;
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is _AnnotatedElement &&
+          runtimeType == other.runtimeType &&
+          annotation.runtimeType == other.annotation.runtimeType &&
+          element == other.element;
+
+  @override
+  int get hashCode => annotation.runtimeType.hashCode ^ element.hashCode;
 }
