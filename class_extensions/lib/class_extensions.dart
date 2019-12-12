@@ -14,8 +14,10 @@ final List<OrderedGenerator> _orderedGenerators = [];
 
 DummyBuilder registerClassExtensionGenerator(
     int order, ClassExtensionGenerator generator) {
-  _orderedGenerators.add(OrderedGenerator(order, generator));
-  _orderedGenerators.sort((left, right) => left.order.compareTo(order));
+  if (!_orderedGenerators.any((generator) => generator.order == order)) {
+    _orderedGenerators.add(OrderedGenerator(order, generator));
+    _orderedGenerators.sort((left, right) => left.order.compareTo(order));
+  }
   return DummyBuilder();
 }
 

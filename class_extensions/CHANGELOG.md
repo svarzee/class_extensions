@@ -1,3 +1,6 @@
+## 0.8.0
+* Fix duplicated generators
+
 ## 0.7.0
 * Fix ordering
 
