@@ -1,15 +1,13 @@
 builders:
-  extension_start:
+  class_extensions:
     import: "package:class_extensions/builder.dart"
-    builder_factories: ["extensionStartBuilder"]
-    build_extensions: {".dart": ["extension_start.g.part"]}
+    builder_factories: ["classExtensionsBuilder"]
+    build_extensions: {".dart": ["class_extensions.g.part"]}
     applies_builders: ["source_gen|combining_builder"]
     auto_apply: dependents
     build_to: cache
-  extension_end:
+
+  dummy_extension_generators:
     import: "package:class_extensions/builder.dart"
-    builder_factories: ["extensionEndBuilder"]
-    build_extensions: {".dart": ["extension_end.g.part"]}
-    applies_builders: ["source_gen|combining_builder"]
-    auto_apply: dependents
-    build_to: cache
+    builder_factories: ["extensionStartDummyBuilder", "extensionEndDummyBuilder"]
+    build_extensions: {".dart": []}
