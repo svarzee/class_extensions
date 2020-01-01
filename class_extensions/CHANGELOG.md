@@ -1,3 +1,6 @@
+## 0.10.1
+* Refactor
+
 ## 0.10.0
 * Upgrade annotations dependency
 

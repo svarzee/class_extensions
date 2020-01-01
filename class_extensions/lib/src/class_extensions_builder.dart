@@ -21,8 +21,7 @@ class ClassExtensionsBuilder extends Builder {
         buildExtensions = {
           '.dart': ['.$partId.g.part']
         },
-        _formatOutput =
-            formatOutput == null ? DartFormatter().format : formatOutput {
+        _formatOutput = formatOutput ?? DartFormatter().format {
     if (partId == null) {
       throw ArgumentError.notNull('partId');
     }
@@ -82,7 +81,7 @@ class ClassExtensionsBuilder extends Builder {
             .map((annotatedElement) =>
                 MapEntry(_AnnotatedElement(annotatedElement), generator)))
         .fold(
-            Map<_AnnotatedElement, List<ClassExtensionGenerator>>(),
+            <_AnnotatedElement, List<ClassExtensionGenerator>>{},
             (Map<_AnnotatedElement, List<ClassExtensionGenerator>>
                         previousValue,
                     MapEntry<_AnnotatedElement, ClassExtensionGenerator>
