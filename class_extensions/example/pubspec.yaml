@@ -1,8 +1,8 @@
 name: example
 
 dependencies:
-  class_extensions_annotations: ^0.1.0
+  class_extensions_annotations: ^0.2.0
 
 dev_dependencies:
   build_runner: ^1.0.0
-  class_extensions: ^0.8.0
+  class_extensions: ^0.10.0

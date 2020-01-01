@@ -1,3 +1,6 @@
+## 0.10.0
+* Upgrade annotations dependency
+
 ## 0.9.0
 * Update dart version constraint
 * Upgrade analyzer
