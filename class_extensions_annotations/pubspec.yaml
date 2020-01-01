@@ -1,8 +1,8 @@
 name: class_extensions_annotations
-version: 0.1.0
+version: 0.2.0
 author: svarzee <svarzee@gmail.com>
 homepage: https://github.com/svarzee/class_extensions
 description: >-
   This package contains annotations which you can use for code generation with class_extensions.
 environment:
-  sdk: '>=2.3.0 <3.0.0'
+  sdk: '>=2.6.0 <3.0.0'
