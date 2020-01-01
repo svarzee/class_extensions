@@ -1,3 +1,7 @@
+## 0.9.0
+* Update dart version constraint
+* Upgrade analyzer
+
 ## 0.8.0
 * Fix duplicated generators
 
