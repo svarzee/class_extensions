@@ -16,7 +16,7 @@ DummyBuilder registerClassExtensionGenerator(
     int order, ClassExtensionGenerator generator) {
   if (!_orderedGenerators.any((generator) => generator.order == order)) {
     _orderedGenerators.add(OrderedGenerator(order, generator));
-    _orderedGenerators.sort((left, right) => left.order.compareTo(order));
+    _orderedGenerators.sort((left, right) => left.order.compareTo(right.order));
   }
   return DummyBuilder();
 }

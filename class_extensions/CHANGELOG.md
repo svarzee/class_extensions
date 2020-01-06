@@ -1,3 +1,6 @@
+## 0.10.2
+* Fix extension ordering error
+
 ## 0.10.1
 * Refactor
 
